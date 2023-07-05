@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="A live blockchain demo in a browser.">
+        <meta name="author" content="Anders Brownworth"><link rel="icon" href="/favicon.ico">
+        <title>
+            Blockchain Demo
+        </title>
+        <link rel="stylesheet" href="bootstrap.min.css">
+        <link rel="stylesheet" href="bootstrap-theme.min.css">
+        <link rel="stylesheet" href="bootstrap-horizon.css">
+        <link rel="stylesheet" href="ladda-themeless.min.css">
+        <link rel="stylesheet" href="ie10-viewport-bug-workaround.css">
+        <link rel="stylesheet" href="blockchain.css">
+        <script src="jquery.min.js"></script>
+        <script src="bootstrap.min.js"></script>
+        <script src="spin.min.js"></script>
+        <script src="ladda.min.js"></script>
+        <script src="ie10-viewport-bug-workaround.js"></script>
+        <script src="sha256.js"></script>
+        <script src="blockchain.js"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container"><div class="navbar-header">
+                <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">Blockchain Demo</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active">
+                        <a href="Hash.html">Hash</a>
+                    </li>
+                    <li>
+                        <a href="block.html">Block</a>
+                    </li>
+                    <li>
+                        <a href="blockchain.html">Blockchain</a>
+                    </li>
+                    <li>
+                        <a href="distributed.html">Distributed</a>
+                    </li>
+                    <li>
+                        <a href="tokens.html">Tokens</a>
+                    </li>
+                    <li>
+                        <a href="tic tac toe.html">Tic-tac-toe</a>
+                    </li>
+                    <li>
+                        <a href="snake.html">Snake</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <h1>SHA256 Hash</h1>
+        <div class="well" id="well1">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="data">Data:</label>
+                    <div class="col-sm-10">
+                        <textarea class="form-control" id="data" rows="10"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="hash">Hash:</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" id="hash" type="text" disabled>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>function getText(block, chain) {
+    return $('#data').val();
+  }
+  
+  $(function() {
+    $('#data').bind('input propertychange', function() {
+      $('#hash').val(sha256());
+    });
+  });
+  
+  $('#hash').val(sha256());
+    </script>
+    </body>
+</html>
